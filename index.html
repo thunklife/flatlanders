@@ -2,17 +2,25 @@
 <html ng-app="store">
   <head>
     <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css"/>
-  </head>
-  <body ng-controller="StoreController as store" class="container">
-    <ul class="list-group">
-      <li class="list-group-item" ng-repeat="product in store.products">
-        <h3>
-          {{product.name}}
-          <em class="pull-right">{{product.price | currency}}</em>
-        </h3>
-      </li>
-    </ul>
     <script type="text/javascript" src="assets/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="StoreController as store" class="list-group">    
+    <div class="list-group-item" ng-repeat="product in store.products">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">{{product.price | currency}}</em>
+      </h3>
+      <div class="gallery">
+        <div class="img-wrap">
+          <img ng-src="{{product.images[0]}}"/>
+        </div>
+        <ul class="img-thumbnails clearfix">
+          <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+            <image ng-src="{{image}}"/>
+          </li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>
