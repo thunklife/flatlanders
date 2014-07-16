@@ -5,18 +5,9 @@
     this.products = gems;
    });
 
-   var gems = [{
-    name: 'Dodecahedron',
-    price: 2,
-    description: 'Some gems have hidden qualities beyond their luster, beyond their shine...Dodeca is one of those gems',
-    canPurchase: true,
-    soldOut: false
-   },
-   {
-    name: 'Pentagonal Gem',
-    price: 5.95,
-    description: 'Some gems have hidden qualities beyond their luster, beyond their shine...Dodeca is one of those gems',
-    canPurchase: true,
-    soldOut: false
-  }];
+   var gems = [
+    { name: 'Azurite', price: 110.50 },
+    { name: 'Bloodstone', price: 22.90 },
+    { name: 'Zircon', price: 1100 },
+  ];
 }());
