@@ -11,9 +11,9 @@
         {{product.name}}
         <em class="pull-right">{{product.price | currency}}</em>
       </h3>
-      <div class="gallery">
+      <div class="gallery" ng-controller="GalleryController as gallery">
         <div class="img-wrap">
-          <img ng-src="{{product.images[0]}}"/>
+          <img ng-src="{{product.images[gallery.current]}}"/>
         </div>
         <ul class="img-thumbnails clearfix">
           <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
@@ -30,15 +30,15 @@
         <div class="panel" ng-show="panel.isSelected(1)">
           <h4>Description</h4>
           <p>{{product.description}}</p>
-        </div>     
+        </div>
         <div class="panel" ng-show="panel.isSelected(2)">
           <h4>Specifications</h4>
           <blockquote>None yet</blockquote>
-        </div>     
+        </div>
         <div class="panel" ng-show="panel.isSelected(3)">
           <h4>Reviews</h4>
           <blockquote>None yet</blockquote>
-        </div>     
+        </div>
       </section>
     </div>
   </body>
