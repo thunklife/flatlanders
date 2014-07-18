@@ -42,7 +42,7 @@
             {{review.body}}
             <cite class="clearfix">-{{review.author}}</cite>
           </blockquote>
-          <form name="reviewForm" ng-submit="reviewCtrl.addReview(product)" ng-controller="ReviewController as reviewCtrl">
+          <form name="reviewForm" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" ng-controller="ReviewController as reviewCtrl" novalidate>
             <blockquote>
             <strong>Stars: {{reviewCtrl.review.stars}}</strong>
             {{reviewCtrl.review.body}}
@@ -50,18 +50,19 @@
           </blockquote>
           <h4>Submit a Review</h4>
             <fieldset class="form-group">
-              <select class="form-control" ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+              <select class="form-control" ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars" required>
                 <option value=" ">Rate the Product</option>
               </select>
             </fieldset>
             <fieldset class="form-group">
-              <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review" title="Review">
+              <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review" title="Review" required>
               </textarea>
             </fieldset>
             <fieldset class="form-group">
-              <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="example@email.com" title="Email"/>
+              <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="example@email.com" title="Email" required/>
             </fieldset>
             <fieldset class="form-group">
+              <div>reviewForm is {{reviewForm.$valid}}</div>
               <input type="submit" class="btn btn-primary pull-right" value="Submit Review"/>
             </fieldset>
           </form>
