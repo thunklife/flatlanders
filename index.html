@@ -5,7 +5,7 @@
     <script type="text/javascript" src="assets/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
-  <body ng-controller="StoreController as store" class="list-group">    
+  <body ng-controller="StoreController as store" class="list-group">
     <div class="list-group-item" ng-repeat="product in store.products">
       <h3>
         {{product.name}}
@@ -38,10 +38,33 @@
         <div class="panel" ng-show="panel.isSelected(3)">
           <h4>Reviews</h4>
           <blockquote ng-repeat="review in product.reviews">
-            <b>Stars: {{review.stars}}</b>
+            <strong>Stars: {{review.stars}}</strong>
             {{review.body}}
-            <cite>by: {{review.author}}</cite>
+            <cite class="clearfix">-{{review.author}}</cite>
           </blockquote>
+          <form name="reviewForm" ng-submit="reviewCtrl.addReview(product)" ng-controller="ReviewController as reviewCtrl">
+            <blockquote>
+            <strong>Stars: {{reviewCtrl.review.stars}}</strong>
+            {{reviewCtrl.review.body}}
+            <cite class="clearfix">-{{reviewCtrl.review.author}}</cite>
+          </blockquote>
+          <h4>Submit a Review</h4>
+            <fieldset class="form-group">
+              <select class="form-control" ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+                <option value=" ">Rate the Product</option>
+              </select>
+            </fieldset>
+            <fieldset class="form-group">
+              <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review" title="Review">
+              </textarea>
+            </fieldset>
+            <fieldset class="form-group">
+              <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="example@email.com" title="Email"/>
+            </fieldset>
+            <fieldset class="form-group">
+              <input type="submit" class="btn btn-primary pull-right" value="Submit Review"/>
+            </fieldset>
+          </form>
         </div>
       </section>
     </div>
