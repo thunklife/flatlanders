@@ -9,8 +9,7 @@
   <body ng-controller="StoreController as store" class="list-group">
     <div class="list-group-item" ng-repeat="product in store.products">
       <h3>
-        {{product.name}}
-        <em class="pull-right">{{product.price | currency}}</em>
+        <product-title></product-title>
       </h3>
       <div class="gallery" ng-controller="GalleryController as gallery">
         <div class="img-wrap">
