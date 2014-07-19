@@ -19,20 +19,25 @@
       this.review = {};
     };
   });
-  app.controller('PanelController', function(){
-   this.tab = 1;
-   this.selectTab = function(tabNum){
-     this.tab = tabNum;
-   };
-   this.isSelected = function(tabNum){
-     return this.tab === tabNum;
-   };
-  });
 
   app.directive('productTitle', function(){
     return {
       restrict: 'E',
       templateUrl: 'product-title.html'
+    };
+  });
+
+  app.directive('productGallery', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'product-gallery.html',
+      controller: function(){
+        this.current = 0;
+        this.setCurrent = function(n){
+          this.current = n || 0;
+        };
+      },
+      controllerAs: 'gallery'
     };
   });
 

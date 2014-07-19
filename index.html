@@ -11,16 +11,7 @@
       <h3>
         <product-title></product-title>
       </h3>
-      <div class="gallery" ng-controller="GalleryController as gallery">
-        <div class="img-wrap">
-          <img ng-src="{{product.images[gallery.current]}}"/>
-        </div>
-        <ul class="img-thumbnails clearfix">
-          <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
-            <image ng-src="{{image}}"/>
-          </li>
-        </ul>
-      </div>
+      <product-gallery></product-gallery>
       <product-panels></product-panels>
     </div>
   </body>
