@@ -3,7 +3,9 @@
 </div>
   <ul class="img-thumbnails clearfix">
    <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
-     <image ng-src="{{image}}"/>
+     <a href ng-click="gallery.setCurrent($index)">
+       <image ng-src="{{image}}" />
+     </a>
    </li>
   </ul>
 </div>
