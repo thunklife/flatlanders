@@ -9,6 +9,21 @@
     };
   });
 
+  app.directive('productReviews', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'product-reviews.html',
+      controller: function(){
+        this.review = {};
+        this.addReview = function(product){
+          this.review.createdOn = Date.now();
+          product.reviews.push(this.review);
+          this.review = {};
+        };
+      },
+      controllerAs: 'review'
+    };
+  });
   app.directive('productGallery', function(){
     return {
       restrict: 'E',
@@ -25,7 +40,7 @@
 
   app.directive('productSpecs', function(){
     return {
-      restrict: 'A',
+      restrict: 'E',
       templateUrl: 'product-specs.html'
     };
   });
